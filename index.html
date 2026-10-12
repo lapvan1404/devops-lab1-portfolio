@@ -3,30 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps Lab 1 — My Portfolio XIN CHÀO VIỆT NAM</title>
+
+    <title>DevOps Lab 1 — My Portfolio | Xin chào Việt Nam</title>
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            padding: 40px 16px;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #333;
         }
+
         .container {
             background: white;
             border-radius: 16px;
-            padding: 48px;
+            padding: 40px;
+            width: 100%;
             max-width: 600px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
-        h1 { color: #667eea; margin-bottom: 8px; font-size: 32px; }
-        h2 { color: #764ba2; margin-bottom: 24px; font-size: 18px; font-weight: normal; }
-        .info { background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 16px 0; text-align: left; }
-        .info p { margin: 8px 0; }
+
+        /* Thanh điều hướng */
+        .site-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .site-nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .site-nav a:hover,
+        .site-nav a[aria-current="page"] {
+            color: white;
+            background: #667eea;
+        }
+
+        /* Ảnh đại diện */
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #667eea;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 32px;
+        }
+
+        h2 {
+            color: #764ba2;
+            margin-bottom: 24px;
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        .info {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 16px 0;
+            text-align: left;
+        }
+
+        .info p {
+            margin: 8px 0;
+            overflow-wrap: anywhere;
+        }
+
         .badge {
             display: inline-block;
             background: #667eea;
@@ -36,47 +106,94 @@
             font-size: 14px;
             margin: 4px;
         }
-        .footer { margin-top: 24px; font-size: 13px; color: #999; }
-        .status { color: #38a169; font-weight: bold; }
+
+        .footer {
+            margin-top: 24px;
+            font-size: 13px;
+            color: #777;
+            line-height: 1.8;
+        }
+
+        .status {
+            color: #25855a;
+            font-weight: bold;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .container {
+                padding: 24px 18px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .site-nav {
+                gap: 4px;
+            }
+
+            .site-nav a {
+                padding: 8px;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <div class="container">
-    <img
-        src="assets/1bbd8aa0abfe72cc2c77fd5a5aa83d7e.jpg"
-        alt="Ảnh đại diện"
-        width="120"
-        height="120"
-        style="border-radius: 50%; object-fit: cover;">
-    <h1>👋 Hello, DevOps!</h1>
+    <main class="container">
+
+        <nav class="site-nav" aria-label="Điều hướng chính">
+            <a href="index.html" aria-current="page">Trang chủ</a>
+            <a href="about.html">Giới thiệu</a>
+            <a href="contact.html">Liên hệ</a>
+        </nav>
+
+        <img
+            class="avatar"
+            src="assets/1bbd8aa0abfe72cc2c77fd5a5aa83d7e.jpg"
+            alt="Ảnh đại diện"
+            width="120"
+            height="120"
+        >
+
+        <h1>👋 Hello, DevOps!</h1>
         <h2>Lab 1 — Trải nghiệm CI/CD Pipeline</h2>
 
-        <div class="info">
-            <p> <strong>Bài học:</strong> DevOps Lab 1 — Tổng quan</p>
-            <p> <strong>Deploy bởi:</strong> GitHub Actions CI/CD</p>
-            <p> <strong>Ngày deploy:</strong> <span id="date"></span></p>
-            <p> <strong>Pipeline status:</strong> <span class="status"> Automated</span></p>
-        </div>
+        <section class="info" aria-label="Thông tin bài thực hành">
+            <p><strong>Bài học:</strong> DevOps Lab 1 — Tổng quan</p>
+            <p><strong>Deploy bởi:</strong> GitHub Actions CI/CD</p>
+            <p><strong>Ngày truy cập:</strong> <span id="date"></span></p>
+            <p>
+                <strong>Pipeline status:</strong>
+                <span class="status">Automated</span>
+            </p>
+        </section>
 
-        <div>
+        <section aria-label="Công nghệ sử dụng">
             <span class="badge">HTML5</span>
             <span class="badge">CSS3</span>
             <span class="badge">Git</span>
             <span class="badge">GitHub Actions</span>
             <span class="badge">CI/CD</span>
             <span class="badge">DevOps</span>
-        </div>
+        </section>
 
-        <div class="footer">
+        <footer class="footer">
             <p>Deployed automatically via GitHub Actions Pipeline</p>
-            <p> Push code → CI Build → Auto Deploy → Live! </p>
-            <p>XIN CHÀO VIỆT NAM!</p>
+            <p>Push code → CI Build → Auto Deploy → Live!</p>
+            <p><strong>XIN CHÀO VIỆT NAM!</strong></p>
             <p>Lập deptry</p>
-        </div>
-    </div>
+        </footer>
+
+    </main>
 
     <script>
-        document.getElementById('date').textContent = new Date().toLocaleDateString('vi-VN');
+        document.getElementById('date').textContent =
+            new Date().toLocaleDateString('vi-VN');
     </script>
 </body>
 </html>
