@@ -1,44 +1,37 @@
-# ============================================================
-# DevOps Lab 1 — CI/CD Pipeline với GitHub Actions
-# Tự động deploy website lên GitHub Pages mỗi khi push code
-# ============================================================
 
-name: Deploy to GitHub Pages
+name: Portfolio CI/CD
 
-# === Khi nào pipeline chạy? ===
 on:
   push:
-    branches: [main]       # Chạy khi push lên nhánh main
-  workflow_dispatch:        # Cho phép chạy thủ công từ GitHub UI
+    branches:
+      - gh-pages
+  workflow_dispatch:
 
-# === Các job trong pipeline ===
+permissions:
+  contents: read
+
 jobs:
-  # Job 1: Build & Deploy
-  build-and-deploy:
-    runs-on: ubuntu-latest   # Chạy trên máy ảo Ubuntu (free)
+  lighthouse:
+    name: Lighthouse CI
+    runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout code từ GitHub
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Step 2: Kiểm tra HTML cơ bản
-      - name: Validate HTML
+      - name: Validate HTML files
         run: |
-          echo "Checking index.html exists..."
-          if [ -f "index.html" ]; then
-            echo "index.html found!"
-            echo "File size: $(wc -c < index.html) bytes"
-          else
-            echo " index.html NOT found!"
-            exit 1
-          fi
+          test -f index.html
+          test -f about.html
+          test -f contact.html
+          echo "All website pages exist."
 
-      # Step 3: Deploy lên GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          publish_branch: gh-pages
-          commit_message: "Auto-deploy from CI pipeline"
+          node-version: 22
+
+      - name: Run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli
+          lhci autorun
