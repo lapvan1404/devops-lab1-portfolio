@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trang giới thiệu bản thân và mục tiêu học tập DevOps.">
+
+    <title>Giới thiệu - My Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .site-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .site-nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .site-nav a:hover,
+        .site-nav a[aria-current="page"] {
+            background: #667eea;
+            color: white;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 30px;
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            color: #764ba2;
+            font-size: 19px;
+            margin: 26px 0 12px;
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .highlight {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 8px;
+            padding: 18px;
+            margin: 20px 0;
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        li {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        li::before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 4px 4px 0 0;
+        }
+
+        .footer {
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .container {
+                padding: 24px 18px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <nav class="site-nav" aria-label="Điều hướng chính">
+            <a href="index.html">Trang chủ</a>
+            <a href="about.html" aria-current="page">Giới thiệu</a>
+            <a href="contact.html">Liên hệ</a>
+        </nav>
+
+        <h1>👋 Giới thiệu bản thân</h1>
+
+        <p>
+            Xin chào! Chào mừng bạn đến với portfolio của tôi.
+            Tôi đang học tập và tìm hiểu về Công nghệ thông tin,
+            đặc biệt là lĩnh vực DevOps.
+        </p>
+
+        <div class="highlight">
+            <p>
+                <strong>Mục tiêu:</strong> Hiểu quy trình phát triển,
+                kiểm thử và triển khai phần mềm tự động thông qua CI/CD.
+            </p>
+        </div>
+
+        <h2>🎯 Mục tiêu học tập</h2>
+        <ul>
+            <li>Sử dụng Git và GitHub để quản lý mã nguồn.</li>
+            <li>Xây dựng pipeline tự động với GitHub Actions.</li>
+            <li>Triển khai website bằng GitHub Pages.</li>
+            <li>Tìm hiểu kiểm thử và nâng cao chất lượng phần mềm.</li>
+        </ul>
+
+        <h2>🛠 Công nghệ đang tìm hiểu</h2>
+        <div>
+            <span class="badge">HTML5</span>
+            <span class="badge">CSS3</span>
+            <span class="badge">Git</span>
+            <span class="badge">GitHub Actions</span>
+            <span class="badge">CI/CD</span>
+            <span class="badge">DevOps</span>
+        </div>
+
+        <footer class="footer">
+            <p>DevOps Lab 1 — My Portfolio</p>
+            <p>Học tập • Thực hành • Phát triển</p>
+        </footer>
+    </main>
+</body>
+</html>
